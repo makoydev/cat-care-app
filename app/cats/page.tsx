@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+import styles from './page.module.scss';
 
 interface CatInfo {
   name: string;
@@ -86,8 +86,8 @@ export default function CatsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-gray-600">Loading...</div>
+      <div className={styles.loading}>
+        <div>Loading...</div>
       </div>
     );
   }
@@ -95,35 +95,28 @@ export default function CatsPage() {
   const currentCat = catsData[selectedCat];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
-      <div className="container mx-auto p-4 max-w-6xl">
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
         {/* Header */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-          <div className="flex justify-between items-center">
-            <h1 className="text-3xl font-bold text-gray-800">Cat Care Instructions</h1>
-            <button
-              onClick={() => {
-                sessionStorage.removeItem('authenticated');
-                router.push('/');
-              }}
-              className="text-sm text-gray-600 hover:text-gray-800 transition"
-            >
-              Logout
-            </button>
-          </div>
+        <div className={styles.header}>
+          <h1>Cat Care Instructions</h1>
+          <button
+            onClick={() => {
+              sessionStorage.removeItem('authenticated');
+              router.push('/');
+            }}
+          >
+            Logout
+          </button>
         </div>
 
         {/* Cat Selector */}
-        <div className="flex gap-4 mb-6">
+        <div className={styles.catSelector}>
           {catsData.map((cat, index) => (
             <button
               key={cat.name}
               onClick={() => setSelectedCat(index)}
-              className={`flex-1 p-4 rounded-xl font-semibold transition-all ${
-                selectedCat === index
-                  ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                  : 'bg-white text-gray-700 hover:shadow-md'
-              }`}
+              className={selectedCat === index ? styles.active : ''}
             >
               {cat.name}
             </button>
@@ -131,22 +124,22 @@ export default function CatsPage() {
         </div>
 
         {/* Cat Information */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className={styles.infoGrid}>
           {/* Basic Info */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">{currentCat.name}</h2>
-            <div className="space-y-3">
-              <div>
-                <span className="font-semibold text-gray-600">Breed:</span>
-                <p className="text-gray-800">{currentCat.breed}</p>
+          <div className={styles.card}>
+            <h2>{currentCat.name}</h2>
+            <div className={styles.infoSection}>
+              <div className={styles.infoItem}>
+                <span>Breed:</span>
+                <p>{currentCat.breed}</p>
               </div>
-              <div>
-                <span className="font-semibold text-gray-600">Personality:</span>
-                <p className="text-gray-800">{currentCat.personality}</p>
+              <div className={styles.infoItem}>
+                <span>Personality:</span>
+                <p>{currentCat.personality}</p>
               </div>
-              <div>
-                <span className="font-semibold text-gray-600">Likes:</span>
-                <ul className="list-disc list-inside text-gray-800 mt-1">
+              <div className={styles.infoItem}>
+                <span>Likes:</span>
+                <ul>
                   {currentCat.likes.map((like, index) => (
                     <li key={index}>{like}</li>
                   ))}
@@ -156,78 +149,73 @@ export default function CatsPage() {
           </div>
 
           {/* Feeding Schedule */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">🍽️ Feeding Schedule</h3>
-            <div className="space-y-3">
-              <div>
-                <span className="font-semibold text-gray-600">Times:</span>
-                <div className="flex gap-2 mt-1">
+          <div className={styles.card}>
+            <h3>🍽️ Feeding Schedule</h3>
+            <div className={styles.infoSection}>
+              <div className={styles.infoItem}>
+                <span>Times:</span>
+                <div className={styles.feedingTimes}>
                   {currentCat.feeding.times.map((time, index) => (
-                    <span key={index} className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
-                      {time}
-                    </span>
+                    <span key={index}>{time}</span>
                   ))}
                 </div>
               </div>
-              <div>
-                <span className="font-semibold text-gray-600">Food:</span>
-                <p className="text-gray-800">{currentCat.feeding.food}</p>
+              <div className={styles.infoItem}>
+                <span>Food:</span>
+                <p>{currentCat.feeding.food}</p>
               </div>
-              <div>
-                <span className="font-semibold text-gray-600">Portion:</span>
-                <p className="text-gray-800">{currentCat.feeding.portion}</p>
+              <div className={styles.infoItem}>
+                <span>Portion:</span>
+                <p>{currentCat.feeding.portion}</p>
               </div>
             </div>
           </div>
 
           {/* Health Information */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">🏥 Health Information</h3>
-            <div className="space-y-3">
-              <div>
-                <span className="font-semibold text-gray-600">Allergies:</span>
-                <ul className="list-disc list-inside text-gray-800 mt-1">
+          <div className={styles.card}>
+            <h3>🏥 Health Information</h3>
+            <div className={styles.infoSection}>
+              <div className={styles.infoItem}>
+                <span>Allergies:</span>
+                <ul>
                   {currentCat.health.allergies.map((allergy, index) => (
-                    <li key={index} className="text-red-600">{allergy}</li>
+                    <li key={index} className={styles.allergy}>{allergy}</li>
                   ))}
                 </ul>
               </div>
-              <div>
-                <span className="font-semibold text-gray-600">Medications:</span>
-                <ul className="list-disc list-inside text-gray-800 mt-1">
+              <div className={styles.infoItem}>
+                <span>Medications:</span>
+                <ul>
                   {currentCat.health.medications.map((med, index) => (
                     <li key={index}>{med}</li>
                   ))}
                 </ul>
               </div>
-              <div>
-                <span className="font-semibold text-gray-600">Vet Info:</span>
-                <p className="text-gray-800">{currentCat.health.vetInfo}</p>
+              <div className={styles.infoItem}>
+                <span>Vet Info:</span>
+                <p>{currentCat.health.vetInfo}</p>
               </div>
             </div>
           </div>
 
           {/* Special Notes */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h3 className="text-xl font-bold text-gray-800 mb-4">📝 Special Notes</h3>
-            <ul className="space-y-2">
+          <div className={styles.card}>
+            <h3>📝 Special Notes</h3>
+            <ul className={styles.specialNotes}>
               {currentCat.specialNotes.map((note, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="text-purple-500 mr-2">•</span>
-                  <span className="text-gray-800">{note}</span>
-                </li>
+                <li key={index}>{note}</li>
               ))}
             </ul>
           </div>
         </div>
 
         {/* Emergency Contact */}
-        <div className="bg-red-50 border border-red-200 rounded-2xl p-6 mt-6">
-          <h3 className="text-xl font-bold text-red-800 mb-2">🚨 Emergency Contact</h3>
-          <p className="text-gray-700">
+        <div className={styles.emergencyCard}>
+          <h3>🚨 Emergency Contact</h3>
+          <p>
             If you have any urgent questions or concerns, please contact us immediately!
           </p>
-          <p className="text-gray-700 mt-2">
+          <p>
             We will have limited connectivity in Phuket, but will check messages when possible.
           </p>
         </div>

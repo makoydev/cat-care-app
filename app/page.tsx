@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import styles from './page.module.scss';
 
 export default function LoginPage() {
   const [accessCode, setAccessCode] = useState('');
@@ -32,16 +33,16 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-100 to-pink-100 p-4">
-      <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">🐱 Cat Care Portal</h1>
-          <p className="text-gray-600">Enter the access code to view cat care instructions</p>
+    <div className={styles.container}>
+      <div className={styles.loginBox}>
+        <div className={styles.header}>
+          <h1>🐱 Cat Care Portal</h1>
+          <p>Enter the access code to view cat care instructions</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="accessCode" className="block text-sm font-medium text-gray-700 mb-2">
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label htmlFor="accessCode">
               Access Code
             </label>
             <input
@@ -49,14 +50,13 @@ export default function LoginPage() {
               id="accessCode"
               value={accessCode}
               onChange={(e) => setAccessCode(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition"
               placeholder="Enter access code"
               required
             />
           </div>
 
           {error && (
-            <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm">
+            <div className={styles.error}>
               {error}
             </div>
           )}
@@ -64,13 +64,13 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 rounded-lg hover:from-purple-600 hover:to-pink-600 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className={styles.submitButton}
           >
             {isLoading ? 'Verifying...' : 'Access Cat Info'}
           </button>
         </form>
 
-        <div className="mt-6 text-center text-sm text-gray-500">
+        <div className={styles.footer}>
           <p>Made with 💜 for Cosmo & Whiskey</p>
         </div>
       </div>
