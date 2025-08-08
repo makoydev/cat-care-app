@@ -19,7 +19,6 @@ export default function LoginPage() {
       const correctCode = process.env.NEXT_PUBLIC_ACCESS_CODE;
       
       if (accessCode === correctCode) {
-        // Store auth state in session storage
         sessionStorage.setItem('authenticated', 'true');
         router.push('/cats');
       } else {
