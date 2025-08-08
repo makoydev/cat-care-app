@@ -1,0 +1,193 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #faf5ff, #fce7f3);
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.header {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #1f2937;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: #4b5563;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #1f2937;
+    }
+  }
+}
+
+.catSelector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  button {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s;
+
+    &.active {
+      background: linear-gradient(to right, #a855f7, #ec4899);
+      color: white;
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+    }
+
+    &:not(.active) {
+      background: white;
+      color: #374151;
+      
+      &:hover {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .infoItem {
+    span {
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    p {
+      color: #1f2937;
+      margin-top: 0.25rem;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+      margin-top: 0.25rem;
+      color: #1f2937;
+
+      li {
+        margin-bottom: 0.25rem;
+
+        &.allergy {
+          color: #dc2626;
+        }
+      }
+    }
+  }
+}
+
+.feedingTimes {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+
+  span {
+    background: #e9d5ff;
+    color: #7c3aed;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+  }
+}
+
+.specialNotes {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+
+    &::before {
+      content: '•';
+      color: #a855f7;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.emergencyCard {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #991b1b;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #374151;
+    margin-top: 0.5rem;
+  }
+}
+
+.loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+}
