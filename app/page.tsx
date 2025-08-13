@@ -9,7 +9,6 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  // This component handles the login functionality for the Cat Care Portal
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
