@@ -29,7 +29,7 @@ export default function LoginPage() {
       setIsLoading(false);
     }
   };
-
+// This component renders a login form for the cat care portal
   return (
     <div className={styles.container}>
       <div className={styles.loginBox}>
