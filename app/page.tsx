@@ -16,7 +16,7 @@ export default function LoginPage() {
 
     try {
       const correctCode = process.env.NEXT_PUBLIC_ACCESS_CODE;
-      
+      // Check if the access code is correct
       if (accessCode === correctCode) {
         sessionStorage.setItem('authenticated', 'true');
         router.push('/cats');
