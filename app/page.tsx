@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import styles from './page.module.scss';
 
 export default function LoginPage() {
+  // This page is the login screen for the Cat Care Portal
   const [accessCode, setAccessCode] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
