@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import styles from './page.module.scss';
 
 export default function LoginPage() {
-  // State variables for access code, error message, and loading state
   const [accessCode, setAccessCode] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
