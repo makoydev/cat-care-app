@@ -13,7 +13,6 @@ export default function LoginPage() {
     e.preventDefault();
     setError('');
     setIsLoading(true);
-    // Simulate an API call to verify the access code
     try {
       const correctCode = process.env.NEXT_PUBLIC_ACCESS_CODE;
       if (accessCode === correctCode) {
