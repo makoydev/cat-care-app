@@ -22,6 +22,8 @@ export default function LoginPage() {
         setError('Invalid access code. Please try again.');
       }
     } catch (err) {
+      // Simulating an API call error
+      console.error('Error during access code verification:', err);
       setError('An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
