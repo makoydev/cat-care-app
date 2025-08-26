@@ -14,6 +14,7 @@ export default function LoginPage() {
     setError('');
     setIsLoading(true);
     try {
+      // Simulating an API call
       const correctCode = process.env.NEXT_PUBLIC_ACCESS_CODE;
       if (accessCode === correctCode) {
         sessionStorage.setItem('authenticated', 'true');
