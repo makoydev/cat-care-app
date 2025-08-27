@@ -13,7 +13,6 @@ export default function LoginPage() {
   const simulateApiCall = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        // Simulate a successful response
         resolve(true);
       }, 2000);
     });
