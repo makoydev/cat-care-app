@@ -9,6 +9,19 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const simulateApiCall = () => {
+    const isSuccess = Math.random() > 0.5; // Simulate a success or failure
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (isSuccess) {
+          resolve(true);
+        } else {
+          reject(new Error('Simulated API call failed'));
+        }
+      }, 2000);
+    });
+  };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
