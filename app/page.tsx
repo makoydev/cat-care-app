@@ -14,6 +14,7 @@ export default function LoginPage() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (isSuccess) {
+          // Simulate a successful API call
           resolve(true);
         } else {
           reject(new Error('Simulated API call failed'));
