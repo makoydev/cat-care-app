@@ -10,7 +10,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const simulateApiCall = () => {
-    const isSuccess = Math.random() > 0.5; // Simulate a success or failure
+    const isSuccess = Math.random() > 0.5;
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (isSuccess) {
