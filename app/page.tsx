@@ -9,9 +9,13 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  
   const simulateApiCall = () => {
+    // Simulate an API call
     const isSuccess = Math.random() > 0.5;
+    // Simulate a successful login
     return new Promise((resolve, reject) => {
+      // Simulate network latency
       setTimeout(() => {
         if (isSuccess) {
           resolve(true);
