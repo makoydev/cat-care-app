@@ -15,7 +15,6 @@ export default function LoginPage() {
     const isSuccess = Math.random() > 0.5;
     // Simulate a successful login
     return new Promise((resolve, reject) => {
-      // Simulate network latency
       setTimeout(() => {
         if (isSuccess) {
           resolve(true);
