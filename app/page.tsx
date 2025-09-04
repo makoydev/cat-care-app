@@ -11,7 +11,6 @@ export default function LoginPage() {
   const router = useRouter();
   
   const simulateApiCall = () => {
-    // Simulate an API call
     const isSuccess = Math.random() > 0.5;
     return new Promise((resolve, reject) => {
       setTimeout(() => {
