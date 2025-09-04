@@ -13,7 +13,6 @@ export default function LoginPage() {
   const simulateApiCall = () => {
     // Simulate an API call
     const isSuccess = Math.random() > 0.5;
-    // Simulate a successful login
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (isSuccess) {
