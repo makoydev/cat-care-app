@@ -11,11 +11,11 @@ export default function LoginPage() {
   const router = useRouter();
   const isAuthenticated = sessionStorage.getItem('authenticated') === 'true';
   
+  // Redirect to /cats if already authenticated
   if (isAuthenticated) {
     router.push('/cats');
     return null;
   }
-
 
 
   const handleSubmit = async (e: React.FormEvent) => {
