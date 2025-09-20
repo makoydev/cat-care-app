@@ -9,6 +9,7 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  // Check if user is already authenticated
   const isAuthenticated = sessionStorage.getItem('authenticated') === 'true';
   
   if (isAuthenticated) {
