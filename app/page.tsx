@@ -12,7 +12,6 @@ export default function LoginPage() {
   const isAuthenticated = sessionStorage.getItem('authenticated') === 'true';
   
   if (isAuthenticated) {
-    // Redirect to /cats if already authenticated
     router.push('/cats');
     return null;
   }
