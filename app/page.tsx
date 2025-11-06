@@ -20,7 +20,6 @@ export default function LoginPage() {
     e.preventDefault();
     setError('');
     setIsLoading(true);
-    // Simulate access code verification
     try {
       const correctCode = process.env.NEXT_PUBLIC_ACCESS_CODE;
       if (accessCode === correctCode) {
