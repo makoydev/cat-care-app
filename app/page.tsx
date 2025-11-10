@@ -13,7 +13,6 @@ export default function LoginPage() {
   
   if (isAuthenticated) {
     router.push('/cats');
-    // User is already authenticated, no need to show login form
     return null;
   }
 
