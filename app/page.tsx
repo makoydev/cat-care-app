@@ -13,6 +13,7 @@ export default function LoginPage() {
   
   if (isAuthenticated) {
     router.push('/cats');
+    //add null
     return null;
   }
 
