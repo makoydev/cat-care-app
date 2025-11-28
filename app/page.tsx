@@ -35,7 +35,6 @@ export default function LoginPage() {
       setIsLoading(false);
     }
   };
-  //todo add some new styling
   return (
     <div className={styles.container}>
       <div className={styles.loginBox}>
