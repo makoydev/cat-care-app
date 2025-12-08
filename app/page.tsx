@@ -12,7 +12,6 @@ export default function LoginPage() {
   const isAuthenticated = sessionStorage.getItem('authenticated') === 'true';
   
   if (isAuthenticated) {
-    //router push
     router.push('/cats');
     //return null
     return null;
