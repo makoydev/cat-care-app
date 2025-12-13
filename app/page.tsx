@@ -30,6 +30,7 @@ export default function LoginPage() {
       }
     } catch (err) {
       console.error('Error during access code verification:', err);
+      //add setting error
       setError('An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
